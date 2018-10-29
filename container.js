@@ -4,7 +4,7 @@ const path=require('path');
 const container=dependable.container();
 
 const simpleDependecies=[
-    ['_','lodash'],['express','express']
+    ['_','lodash']
 ];
 
 simpleDependecies.forEach(function (val) {
@@ -12,3 +12,5 @@ simpleDependecies.forEach(function (val) {
         return require(val[1])
     })
 });
+
+container.load(path.join(__dirname,'/controllers'));

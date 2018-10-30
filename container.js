@@ -4,7 +4,8 @@ const path=require('path');
 const container=dependable.container();
 
 const simpleDependecies=[
-    ['_','lodash']
+    ['_','lodash'],['async','async'],
+    ['mongoose','mongoose']
 ];
 
 simpleDependecies.forEach(function (val) {
@@ -14,3 +15,10 @@ simpleDependecies.forEach(function (val) {
 });
 
 container.load(path.join(__dirname,'/controllers'));
+container.load(path.join(__dirname,'/helpers'));
+
+container.register('container',function () {
+    return container;
+});
+
+module.exports = container;
